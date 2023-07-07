@@ -28,6 +28,19 @@ module.exports = merge(common, {
                     'less-loader',
                     'postcss-loader',],
             },
+            {
+                test: /\.ts$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    },
+                    'ts-loader'
+                ],
+                exclude: /node_modules/
+            }
         ],
     },
     plugins: [

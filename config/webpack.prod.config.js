@@ -25,8 +25,32 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                use: [
+                    'style-loader', // 将 JS 字符串生成为 style 节点
+                    'css-loader', // 将 CSS 转化成 CommonJS 模块
+                    'postcss-loader',
+                ],
             },
+            {
+                test: /\.less$/,
+                use: ['style-loader',
+                    'css-loader',
+                    'less-loader',
+                    'postcss-loader',],
+            },
+            {
+                test: /\.ts$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    },
+                    'ts-loader'
+                ],
+                exclude: /node_modules/
+            }
         ],
     },
     plugins: [
