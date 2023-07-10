@@ -1,18 +1,22 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber'
+import CountDown from './components/countDown'
 import './index.less'
 
 function App() {
     return (
         <div id="canvas-container">
             <Canvas >
+                <ambientLight intensity={0.5} />
+                <directionalLight color="red" position={[0, 0, 5]} />
                 <mesh>
-                    <ambientLight intensity={0.1} />
-                    <directionalLight color="red" position={[0, 0, 5]} />
-                    <boxGeometry args={[3,3,3]}/>
-                    <meshStandardMaterial />
+                    <sphereGeometry args={[1,16,16]}/>
+                    <meshStandardMaterial color="hotpink" transparent />
                 </mesh>
             </Canvas>
+            <div>
+                <CountDown />
+            </div>
         </div>
     )
 }
