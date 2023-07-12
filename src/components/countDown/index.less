@@ -1,8 +1,34 @@
 .cd-wrapper {
     display: flex;
     flex-direction: row;
+}
 
-    .cd-second-item {
-        background-color: aquamarine;
-    }
+.cd-second-wrapper {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1.0s;
+}
+
+.cd-second-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.front {
+    background: rgb(0, 225, 255);
+    backface-visibility: hidden;
+}
+
+.back {
+    background: rgb(0, 225, 255);
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateX(180deg);
+}
+
+.roll {
+    transform: rotateX(180deg);
 }
