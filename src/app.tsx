@@ -7,12 +7,17 @@ import './index.less'
 function App() {
     return (
         <div id="canvas-container">
-            <Canvas >
-                <ambientLight />
-                <pointLight position={[10, 10, 10]} />
-                <Box  position={[-1.2,0,0]}/>
-                <Box  position={[1.2,0,0]}/>
-            </Canvas>
+            <div className='universal-area'>
+                <Canvas >
+                    <ambientLight />
+                    <pointLight position={[10, 10, 10]} />
+                    <Box color={'purple'} position={[0,3,0]}/>
+                    <Box  color={'blue'} position={[-3,0,0]}/>
+                    <Box  color={'yellow'} position={[3,0,0]}/>
+                    <Box color={'red'} position={[0,0,0]}/>
+                    <Box color={'orange'} position={[0,-3,0]}/>
+                </Canvas>
+            </div>
             <div>
                 <CountDown />
             </div>

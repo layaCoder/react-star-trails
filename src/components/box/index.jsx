@@ -5,7 +5,15 @@ const Box = (props) => {
     const ref = useRef(null)
     const [hovered,setHovered] = useState(false)
     const [clicked,click] = useState(false)
-    useFrame((state, delta) => (ref.current.rotation.y += delta))
+    const {color = 'red'} = props
+    let angle = 0
+    useFrame((state, delta) =>{
+        angle += 1 
+        ref.current.position.x = Math.sin(angle*Math.PI/180)*3
+        ref.current.position.y = Math.cos(angle*Math.PI/180)*3
+        ref.current.rotation.x += 0.01
+        ref.current.rotation.y += 0.01
+    } )
     return ( 
         <mesh
             {...props}
@@ -16,7 +24,7 @@ const Box = (props) => {
             onPointerOut={()=>setHovered(false)}
         >
             <boxGeometry args={[1,1,1]}/>
-            <meshStandardMaterial color={hovered?'hotpink':'orange'}/>
+            <meshStandardMaterial color={hovered?'orange':color}/>
         </mesh>
     );
 }
