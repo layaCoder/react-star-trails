@@ -11,11 +11,11 @@ function App() {
                 <Canvas >
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
-                    <Box color={'purple'} position={[0,3,0]}/>
-                    <Box  color={'blue'} position={[-3,0,0]}/>
-                    <Box  color={'yellow'} position={[3,0,0]}/>
-                    <Box color={'red'} position={[0,0,0]}/>
-                    <Box color={'orange'} position={[0,-3,0]}/>
+                    <Box color={'purple'} angle={90} position={[0,3,0]}/>
+                    <Box  color={'blue'} angle={180} position={[-3,0,0]}/>
+                    <Box  color={'yellow'}  angle={270} position={[3,0,0]}/>
+                    {/* <Box color={'red'} angle={270} position={[0,0,0]}/> */}
+                    <Box color={'orange'} angle={360} position={[0,-3,0]}/>
                 </Canvas>
             </div>
             <div>

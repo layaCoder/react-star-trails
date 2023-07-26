@@ -6,11 +6,10 @@ const Box = (props) => {
     const [hovered,setHovered] = useState(false)
     const [clicked,click] = useState(false)
     const {color = 'red'} = props
-    let angle = 0
     useFrame((state, delta) =>{
-        angle += 1 
-        ref.current.position.x = Math.sin(angle*Math.PI/180)*3
-        ref.current.position.y = Math.cos(angle*Math.PI/180)*3
+        ref.current.angle+=0.1
+        ref.current.position.x = Math.sin( ref.current.angle*Math.PI/180)*3
+        ref.current.position.y = Math.cos( ref.current.angle*Math.PI/180)*3 
         ref.current.rotation.x += 0.01
         ref.current.rotation.y += 0.01
     } )
